@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     hiddenSize = 100
     net = buildNetwork(x.shape[1], hiddenSize, 1, bias=True)
-    # net = pickle.load( open("model_val.pk1", 'rb' ))
+    net = pickle.load( open("model_val.pk1", 'rb' ))
     trainer = BackpropTrainer(net, ds)
 
     for i in range(300):
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     y_pred = net.activateOnDataset(ds2)
 
-    output = open("sub7.csv", "w")
+    output = open("sub1.csv", "w")
     output.write("Id,reference\n")
     for i, result in enumerate(y_pred):
         output.write("%d,%.1f\n" % (i, result))
